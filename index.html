@@ -165,26 +165,138 @@
                 </div>
             </div>
 
-            <!-- CoP Line Diagram -->
-            <div class="cop-diagram fade-in">
-                <div class="cop-content">
-                    <h3>문제의 핵심: <span class="highlight">CoP 라인의 이탈</span></h3>
-                    <p>정상적인 압력중심라인(CoP) 보행은 바른 보행의 척도입니다</p>
+            <!-- CoP Line Section -->
+            <div class="cop-section fade-in">
+                <div class="cop-header">
+                    <h3 class="cop-main-title">문제의 핵심: <span class="highlight">CoP 라인의 이탈</span></h3>
+                    <p class="cop-subtitle">Center of Pressure (CoP) - 압력중심라인</p>
                 </div>
-                <div class="cop-visual">
-                    <svg viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Foot outline -->
-                        <path d="M150 30 C200 30, 240 80, 245 150 C250 220, 240 300, 220 350 C200 390, 160 400, 150 400 C140 400, 100 390, 80 350 C60 300, 50 220, 55 150 C60 80, 100 30, 150 30Z" fill="#f5f5f7" stroke="#ddd" stroke-width="2"/>
-                        <!-- Normal CoP Line (Green) -->
-                        <path d="M150 380 Q120 300, 110 220 Q100 140, 150 60" stroke="#00C853" stroke-width="4" fill="none"/>
-                        <circle cx="150" cy="60" r="8" fill="#00C853"/>
-                        <!-- Abnormal CoP Line (Red) -->
-                        <path d="M150 380 Q180 320, 200 260 Q220 200, 200 100" stroke="#FF6B6B" stroke-width="4" fill="none" stroke-dasharray="8,4"/>
-                        <circle cx="200" cy="100" r="8" fill="#FF6B6B"/>
-                        <!-- Labels -->
-                        <text x="80" y="180" fill="#00C853" font-size="12" font-weight="bold">정상 CoP</text>
-                        <text x="210" y="180" fill="#FF6B6B" font-size="12" font-weight="bold">비정상 CoP</text>
-                    </svg>
+
+                <!-- CoP Explanation with Image -->
+                <div class="cop-explanation">
+                    <div class="cop-image-area">
+                        <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" alt="발과 보행" class="cop-photo">
+                        <div class="cop-image-caption">
+                            <span>바른 보행은 건강의 시작입니다</span>
+                        </div>
+                    </div>
+                    <div class="cop-text-area">
+                        <h4>CoP란 무엇인가?</h4>
+                        <p><strong>CoP(Center of Pressure)</strong>란 보행 시 발바닥에 가해지는 압력의 중심점이 이동하는 경로입니다. 이 경로가 바르게 형성되어야 건강한 보행이 가능합니다.</p>
+                        <div class="cop-path-info">
+                            <div class="path-item correct">
+                                <span class="path-icon">✓</span>
+                                <div>
+                                    <strong>정상적인 CoP 경로</strong>
+                                    <p>뒤꿈치 중앙 → 발 내측 아치 → 엄지발가락</p>
+                                </div>
+                            </div>
+                            <div class="path-item wrong">
+                                <span class="path-icon">✗</span>
+                                <div>
+                                    <strong>비정상적인 CoP 경로</strong>
+                                    <p>뒤꿈치 외측 → 발 외측 → 새끼발가락 방향</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CoP Diagram Comparison -->
+                <div class="cop-comparison">
+                    <div class="cop-compare-item">
+                        <div class="compare-label wrong-label">비정상 보행</div>
+                        <div class="cop-visual-box">
+                            <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 20 C140 20, 170 60, 175 110 C180 160, 170 220, 155 260 C140 290, 115 300, 100 300 C85 300, 60 290, 45 260 C30 220, 20 160, 25 110 C30 60, 60 20, 100 20Z" fill="#fff5f5" stroke="#FF6B6B" stroke-width="2"/>
+                                <path d="M100 280 Q130 220, 145 170 Q160 120, 145 60" stroke="#FF6B6B" stroke-width="4" fill="none" stroke-dasharray="8,4"/>
+                                <circle cx="145" cy="60" r="6" fill="#FF6B6B"/>
+                                <circle cx="100" cy="280" r="6" fill="#FF6B6B"/>
+                            </svg>
+                        </div>
+                        <div class="compare-desc">
+                            <p><strong>외측으로 이탈된 CoP</strong></p>
+                            <ul>
+                                <li>발목 불안정</li>
+                                <li>무릎 외반</li>
+                                <li>허리 통증 유발</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cop-compare-arrow">
+                        <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 30H45M45 30L35 20M45 30L35 40" stroke="#00CED1" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                        <span>교정</span>
+                    </div>
+                    <div class="cop-compare-item">
+                        <div class="compare-label correct-label">정상 보행</div>
+                        <div class="cop-visual-box">
+                            <svg viewBox="0 0 200 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 20 C140 20, 170 60, 175 110 C180 160, 170 220, 155 260 C140 290, 115 300, 100 300 C85 300, 60 290, 45 260 C30 220, 20 160, 25 110 C30 60, 60 20, 100 20Z" fill="#f0fff4" stroke="#00C853" stroke-width="2"/>
+                                <path d="M100 280 Q75 220, 70 160 Q65 100, 100 40" stroke="#00C853" stroke-width="4" fill="none"/>
+                                <circle cx="100" cy="40" r="6" fill="#00C853"/>
+                                <circle cx="100" cy="280" r="6" fill="#00C853"/>
+                                <ellipse cx="70" cy="180" rx="20" ry="35" fill="#00C853" opacity="0.2"/>
+                            </svg>
+                        </div>
+                        <div class="compare-desc">
+                            <p><strong>이상적인 CoP 경로</strong></p>
+                            <ul>
+                                <li>안정적인 보행</li>
+                                <li>관절 보호</li>
+                                <li>에너지 효율 향상</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CoP Statistics -->
+                <div class="cop-stats">
+                    <div class="cop-stat-item fade-in">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="24" cy="24" r="20" stroke="#0066CC" stroke-width="2"/>
+                                <path d="M24 14V24L30 30" stroke="#0066CC" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">80%</div>
+                        <div class="stat-desc">현대인의 잘못된 보행 습관 비율</div>
+                    </div>
+                    <div class="cop-stat-item fade-in">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24 8L24 40M16 16L24 8L32 16" stroke="#0066CC" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">3배</div>
+                        <div class="stat-desc">잘못된 보행 시 관절 부담 증가</div>
+                    </div>
+                    <div class="cop-stat-item fade-in">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="10" y="20" width="28" height="18" rx="2" stroke="#0066CC" stroke-width="2"/>
+                                <path d="M18 20V14C18 11 21 8 24 8C27 8 30 11 30 14V20" stroke="#0066CC" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">5,000+</div>
+                        <div class="stat-desc">하루 평균 걸음 수</div>
+                    </div>
+                    <div class="cop-stat-item fade-in">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 36L20 28L28 32L36 20" stroke="#0066CC" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="36" cy="20" r="4" fill="#00CED1"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number">2주</div>
+                        <div class="stat-desc">CoP 교정 효과 체감 시작</div>
+                    </div>
+                </div>
+
+                <!-- Bottom Image -->
+                <div class="cop-bottom-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1486218119243-13883505764c?auto=format&fit=crop&w=1200&q=80" alt="건강한 보행" class="content-image">
                 </div>
             </div>
         </div>
