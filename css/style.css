@@ -1982,3 +1982,347 @@ h1, h2, h3, h4, h5, h6 {
         flex-wrap: wrap;
     }
 }
+
+/* ============================================
+   Target Recommendations Section
+   ============================================ */
+.recommendations {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+}
+
+.target-card {
+    background: var(--white);
+    padding: 32px 24px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.target-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--primary));
+    transform: scaleX(0);
+    transition: transform var(--transition-normal);
+}
+
+.target-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.target-card:hover::before {
+    transform: scaleX(1);
+}
+
+.target-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 16px;
+    color: var(--primary);
+}
+
+.target-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+}
+
+.target-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 12px;
+    color: var(--dark);
+    line-height: 1.4;
+}
+
+.target-card > p {
+    font-size: 0.875rem;
+    color: var(--medium-gray);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.target-benefits {
+    text-align: left;
+    padding-left: 0;
+}
+
+.target-benefits li {
+    font-size: 0.8125rem;
+    color: var(--medium-gray);
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+    list-style: none;
+}
+
+.target-benefits li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: bold;
+}
+
+/* ============================================
+   Reviews Section
+   ============================================ */
+.reviews {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.reviews-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    margin-bottom: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    border-radius: 24px;
+}
+
+.review-stat {
+    text-align: center;
+    color: var(--white);
+}
+
+.review-stat .stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.review-stat .stat-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+.star-rating {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+
+.star {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.star.filled {
+    color: #FFD700;
+}
+
+.star.half {
+    background: linear-gradient(90deg, #FFD700 50%, rgba(255, 255, 255, 0.3) 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.review-card {
+    background: var(--bg-light);
+    padding: 32px;
+    border-radius: 20px;
+    transition: all var(--transition-normal);
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+}
+
+.reviewer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reviewer-name {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.reviewer-meta {
+    font-size: 0.8125rem;
+    color: var(--light-gray);
+}
+
+.review-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.review-rating .star {
+    font-size: 1rem;
+    color: #ddd;
+}
+
+.review-rating .star.filled {
+    color: #FFD700;
+}
+
+.review-text {
+    font-size: 0.9375rem;
+    color: var(--medium-gray);
+    line-height: 1.7;
+    margin-bottom: 16px;
+}
+
+.review-date {
+    font-size: 0.75rem;
+    color: var(--light-gray);
+}
+
+/* Fifth review card spans 2 columns on larger screens */
+.reviews-grid .review-card:nth-child(4),
+.reviews-grid .review-card:nth-child(5) {
+    grid-column: span 1;
+}
+
+/* ============================================
+   Purchase Trust Badges
+   ============================================ */
+.purchase-badges {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.badge-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color var(--transition-fast);
+}
+
+.badge-item:hover {
+    color: var(--accent);
+}
+
+.badge-item svg {
+    width: 28px;
+    height: 28px;
+}
+
+.badge-item span {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   Responsive - New Sections
+   ============================================ */
+@media (max-width: 1200px) {
+    .target-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .target-grid .target-card:nth-child(4),
+    .target-grid .target-card:nth-child(5) {
+        grid-column: span 1;
+    }
+}
+
+@media (max-width: 992px) {
+    .target-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .reviews-stats {
+        gap: 40px;
+        padding: 32px;
+    }
+
+    .review-stat .stat-number {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .target-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .reviews-stats {
+        flex-direction: column;
+        gap: 24px;
+        padding: 24px;
+    }
+
+    .review-stat .stat-number {
+        font-size: 2rem;
+    }
+
+    .purchase-badges {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .badge-item {
+        flex: 0 0 calc(50% - 8px);
+    }
+}
+
+@media (max-width: 480px) {
+    .target-card {
+        padding: 24px 20px;
+    }
+
+    .review-card {
+        padding: 24px;
+    }
+
+    .badge-item svg {
+        width: 24px;
+        height: 24px;
+    }
+}
