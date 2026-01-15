@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initNavbarScroll();
     initImageSliders();
+    initReviewsSlider();
 });
 
 /* ============================================
@@ -75,6 +76,76 @@ function initImageSliders() {
         // Initialize first slide
         slides[0].classList.add('active');
     });
+}
+
+/* ============================================
+   Reviews Slider
+   ============================================ */
+
+function initReviewsSlider() {
+    const wrapper = document.querySelector('.reviews-slider-wrapper');
+    if (!wrapper) return;
+
+    const track = wrapper.querySelector('.reviews-track');
+    const cards = wrapper.querySelectorAll('.review-card');
+    const prevBtn = wrapper.querySelector('.review-prev');
+    const nextBtn = wrapper.querySelector('.review-next');
+
+    if (!track || cards.length === 0) return;
+
+    let currentIndex = 0;
+    const cardWidth = cards[0].offsetWidth + 24; // card width + gap
+    const visibleCards = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+    const maxIndex = Math.max(0, cards.length - visibleCards);
+
+    function updateSlider() {
+        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+    }
+
+    function goToNext() {
+        if (currentIndex < maxIndex) {
+            currentIndex++;
+        } else {
+            currentIndex = 0; // Loop back to start
+        }
+        updateSlider();
+    }
+
+    function goToPrev() {
+        if (currentIndex > 0) {
+            currentIndex--;
+        } else {
+            currentIndex = maxIndex; // Loop to end
+        }
+        updateSlider();
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', goToPrev);
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', goToNext);
+    }
+
+    // Auto slide every 5 seconds
+    let autoSlide = setInterval(goToNext, 5000);
+
+    // Pause on hover
+    wrapper.addEventListener('mouseenter', () => clearInterval(autoSlide));
+    wrapper.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(goToNext, 5000);
+    });
+
+    // Update on resize
+    window.addEventListener('resize', debounce(() => {
+        const newVisibleCards = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        const newMaxIndex = Math.max(0, cards.length - newVisibleCards);
+        if (currentIndex > newMaxIndex) {
+            currentIndex = newMaxIndex;
+            updateSlider();
+        }
+    }, 250));
 }
 
 /* ============================================

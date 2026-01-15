@@ -2142,22 +2142,61 @@ h1, h2, h3, h4, h5, h6 {
     background-clip: text;
 }
 
-.reviews-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* Reviews Slider */
+.reviews-slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+}
+
+.reviews-slider {
+    flex: 1;
+    overflow: hidden;
+}
+
+.reviews-track {
+    display: flex;
     gap: 24px;
+    transition: transform 0.5s ease;
 }
 
 .review-card {
     background: var(--bg-light);
     padding: 32px;
     border-radius: 20px;
+    flex: 0 0 calc(33.333% - 16px);
+    min-width: calc(33.333% - 16px);
     transition: all var(--transition-normal);
 }
 
 .review-card:hover {
-    transform: translateY(-5px);
     box-shadow: var(--shadow-md);
+}
+
+.review-nav {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    background: var(--white);
+    color: var(--primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+}
+
+.review-nav:hover {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.review-nav svg {
+    width: 24px;
+    height: 24px;
 }
 
 .review-header {
@@ -2209,21 +2248,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--light-gray);
 }
 
-/* Center last row of review cards */
-.reviews-grid {
-    justify-items: center;
-}
-
-.reviews-grid .review-card {
-    width: 100%;
-    max-width: 400px;
-}
-
-@media (min-width: 993px) {
-    .reviews-grid .review-card {
-        max-width: none;
-    }
-}
 
 /* ============================================
    Purchase Trust Badges
@@ -2268,8 +2292,9 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .review-card {
+        flex: 0 0 calc(50% - 12px);
+        min-width: calc(50% - 12px);
     }
 
     .reviews-stats {
@@ -2287,8 +2312,38 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: 1fr;
     }
 
-    .reviews-grid {
-        grid-template-columns: 1fr;
+    .review-card {
+        flex: 0 0 100%;
+        min-width: 100%;
+    }
+
+    .reviews-slider-wrapper {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .review-nav {
+        position: static;
+    }
+
+    .reviews-slider-wrapper .review-nav {
+        display: none;
+    }
+
+    .reviews-track {
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-bottom: 10px;
+    }
+
+    .reviews-track::-webkit-scrollbar {
+        display: none;
+    }
+
+    .reviews-track .review-card {
+        scroll-snap-align: start;
     }
 
     .reviews-stats {
