@@ -9,7 +9,73 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initNavbarScroll();
+    initImageSliders();
 });
+
+/* ============================================
+   Image Sliders
+   ============================================ */
+
+function initImageSliders() {
+    const sliders = document.querySelectorAll('.image-slider');
+
+    sliders.forEach(slider => {
+        const slides = slider.querySelectorAll('.slide');
+        const dotsContainer = slider.querySelector('.slider-dots');
+        const interval = parseInt(slider.dataset.interval) || 4000;
+        let currentIndex = 0;
+        let autoSlideTimer;
+
+        if (slides.length <= 1) return;
+
+        // Create dots
+        if (dotsContainer) {
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('slider-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        const dots = dotsContainer ? dotsContainer.querySelectorAll('.slider-dot') : [];
+
+        function goToSlide(index) {
+            slides[currentIndex].classList.remove('active');
+            if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
+
+            currentIndex = index;
+            if (currentIndex >= slides.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = slides.length - 1;
+
+            slides[currentIndex].classList.add('active');
+            if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+        }
+
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
+
+        function startAutoSlide() {
+            autoSlideTimer = setInterval(nextSlide, interval);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideTimer);
+        }
+
+        // Start auto slide
+        startAutoSlide();
+
+        // Pause on hover
+        slider.addEventListener('mouseenter', stopAutoSlide);
+        slider.addEventListener('mouseleave', startAutoSlide);
+
+        // Initialize first slide
+        slides[0].classList.add('active');
+    });
+}
 
 /* ============================================
    Navigation

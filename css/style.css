@@ -497,6 +497,22 @@ h1, h2, h3, h4, h5, h6 {
     object-fit: cover;
 }
 
+.cop-image-area .image-slider {
+    height: 350px;
+}
+
+.cop-bottom-image .image-slider {
+    height: 300px;
+}
+
+.solution-hero-image .image-slider {
+    height: 500px;
+}
+
+.tech-hero-image .image-slider {
+    height: 400px;
+}
+
 .cop-image-caption {
     position: absolute;
     bottom: 0;
@@ -712,6 +728,114 @@ h1, h2, h3, h4, h5, h6 {
 
 .cop-bottom-image .content-image {
     height: 300px;
+}
+
+/* Image Slider */
+.image-slider {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.image-slider .slide.active {
+    opacity: 1;
+}
+
+.image-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.slider-dot:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.slider-dot.active {
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+/* Hero Slider */
+.hero-bg .image-slider {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-bg .slide img {
+    filter: brightness(0.7);
+}
+
+/* CoP Slider */
+.cop-slider {
+    height: 350px;
+    border-radius: 20px;
+}
+
+.cop-slider .slide img {
+    border-radius: 20px;
+}
+
+/* Wide Slider (CoP bottom) */
+.wide-slider {
+    height: 300px;
+    border-radius: 20px;
+}
+
+.wide-slider .slide img {
+    border-radius: 20px;
+}
+
+/* Solution Slider */
+.solution-slider {
+    height: 500px;
+    border-radius: 24px;
+}
+
+.solution-slider .slide img {
+    border-radius: 24px;
+}
+
+/* Tech Slider */
+.tech-slider {
+    height: 400px;
+    border-radius: 24px;
+}
+
+.tech-slider .slide img {
+    border-radius: 24px;
 }
 
 /* Content Images */
@@ -1666,6 +1790,26 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .cop-photo {
+        height: 250px;
+    }
+
+    .cop-slider,
+    .cop-image-area .image-slider {
+        height: 250px;
+    }
+
+    .wide-slider,
+    .cop-bottom-image .image-slider {
+        height: 200px;
+    }
+
+    .solution-slider,
+    .solution-hero-image .image-slider {
+        height: 300px;
+    }
+
+    .tech-slider,
+    .tech-hero-image .image-slider {
         height: 250px;
     }
 
