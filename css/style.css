@@ -1993,7 +1993,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .target-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
@@ -2209,10 +2209,20 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--light-gray);
 }
 
-/* Fifth review card spans 2 columns on larger screens */
-.reviews-grid .review-card:nth-child(4),
-.reviews-grid .review-card:nth-child(5) {
-    grid-column: span 1;
+/* Center last row of review cards */
+.reviews-grid {
+    justify-items: center;
+}
+
+.reviews-grid .review-card {
+    width: 100%;
+    max-width: 400px;
+}
+
+@media (min-width: 993px) {
+    .reviews-grid .review-card {
+        max-width: none;
+    }
 }
 
 /* ============================================
@@ -2253,17 +2263,6 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================
    Responsive - New Sections
    ============================================ */
-@media (max-width: 1200px) {
-    .target-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-    .target-grid .target-card:nth-child(4),
-    .target-grid .target-card:nth-child(5) {
-        grid-column: span 1;
-    }
-}
-
 @media (max-width: 992px) {
     .target-grid {
         grid-template-columns: repeat(2, 1fr);
