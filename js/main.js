@@ -198,29 +198,53 @@ function initMobileMenu() {
     const menuBtn = document.querySelector('.mobile-menu-btn');
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-menu a');
+    let scrollPosition = 0;
+
+    function openMenu() {
+        scrollPosition = window.scrollY;
+        document.body.style.top = `-${scrollPosition}px`;
+        menuBtn.classList.add('active');
+        navMenu.classList.add('active');
+        document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+        menuBtn.classList.remove('active');
+        navMenu.classList.remove('active');
+        document.body.classList.remove('menu-open');
+        document.body.style.top = '';
+        window.scrollTo(0, scrollPosition);
+    }
 
     if (menuBtn && navMenu) {
         menuBtn.addEventListener('click', function() {
-            menuBtn.classList.toggle('active');
-            navMenu.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
 
         // Close menu when clicking a link
         navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                menuBtn.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
+                closeMenu();
             });
         });
 
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!menuBtn.contains(e.target) && !navMenu.contains(e.target)) {
-                menuBtn.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.classList.remove('menu-open');
+            if (navMenu.classList.contains('active') &&
+                !menuBtn.contains(e.target) &&
+                !navMenu.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMenu();
             }
         });
     }
