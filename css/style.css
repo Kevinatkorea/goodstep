@@ -208,6 +208,18 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo-icon {
     color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-icon svg {
+    display: block;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu {
@@ -216,8 +228,14 @@ h1, h2, h3, h4, h5, h6 {
     gap: 40px;
 }
 
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
 .nav-menu a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
     color: rgba(255,255,255,0.8);
     font-weight: 500;
     font-size: 0.9375rem;
@@ -2032,6 +2050,11 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateX(0);
         opacity: 1;
         visibility: visible;
+    }
+
+    .nav-menu li {
+        display: block;
+        width: 100%;
     }
 
     .nav-menu a {
