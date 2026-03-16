@@ -266,14 +266,13 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
     flex-direction: column;
     gap: 5px;
-    background: rgba(255, 255, 255, 0.25);
-    border: 2px solid rgba(255, 255, 255, 0.5);
+    background: var(--accent);
+    border: none;
     border-radius: 8px;
     cursor: pointer;
-    padding: 9px 8px;
+    padding: 10px 9px;
     z-index: 100;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    flex-shrink: 0;
 }
 
 .mobile-menu-btn span {
