@@ -338,16 +338,16 @@ function initTargetSlider() {
 
         if (window.innerWidth <= 576) {
             // Mobile: scroll to card position
-            var cardWidth = cards[0].offsetWidth + 12;
-            track.scrollTo({ left: currentIndex * cardWidth, behavior: 'smooth' });
+            var mobileCardW = cards[0].offsetWidth + 12;
+            track.scrollTo({ left: currentIndex * mobileCardW, behavior: 'smooth' });
             updateDots();
             return;
         }
 
         // Tablet: JS transform
-        const cardWidth = cards[0].offsetWidth + 20;
+        var tabletCardW = cards[0].offsetWidth + 20;
         currentIndex = Math.min(currentIndex, getMaxIndex());
-        track.style.transform = 'translateX(-' + (currentIndex * cardWidth) + 'px)';
+        track.style.transform = 'translateX(-' + (currentIndex * tabletCardW) + 'px)';
         updateDots();
     }
 
