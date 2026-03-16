@@ -2404,12 +2404,14 @@ h1, h2, h3, h4, h5, h6 {
     .cop-comparison {
         flex-direction: row !important;
         flex-wrap: nowrap;
+        justify-content: flex-start !important;
+        align-items: stretch;
         gap: 12px;
-        padding: 8px 16px;
+        padding: 0;
+        margin: 0;
         background: none;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        scroll-padding-left: 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         border-radius: 0;
@@ -2420,13 +2422,13 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .cop-compare-item {
-        flex: 0 0 80vw;
-        min-width: 80vw;
+        flex: 0 0 85vw !important;
+        min-width: 85vw !important;
+        max-width: 85vw !important;
         scroll-snap-align: start;
         background: var(--bg-light);
         border-radius: 20px;
         padding: 24px 16px;
-        max-width: none;
     }
 
     .cop-compare-arrow {
@@ -2638,10 +2640,10 @@ h1, h2, h3, h4, h5, h6 {
         gap: 12px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        scroll-padding-left: 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding: 8px 16px;
+        padding: 0;
+        margin: 0;
         transition: none;
         transform: none !important;
     }
@@ -2651,9 +2653,9 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .target-card {
-        flex: 0 0 78vw;
-        min-width: 78vw;
-        max-width: 78vw;
+        flex: 0 0 85vw;
+        min-width: 85vw;
+        max-width: 85vw;
         scroll-snap-align: start;
         padding: 24px 20px;
     }
@@ -2719,13 +2721,14 @@ h1, h2, h3, h4, h5, h6 {
     .steps-container {
         flex-direction: row;
         flex-wrap: nowrap;
+        justify-content: flex-start;
         gap: 12px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        scroll-padding-left: 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding: 8px 16px;
+        padding: 0;
+        margin: 0;
     }
 
     .steps-container::-webkit-scrollbar {
@@ -2734,9 +2737,9 @@ h1, h2, h3, h4, h5, h6 {
 
     .step-card {
         padding: 28px 20px;
-        flex: 0 0 78vw;
-        min-width: 78vw;
-        max-width: 78vw;
+        flex: 0 0 85vw;
+        min-width: 85vw;
+        max-width: 85vw;
         scroll-snap-align: start;
     }
 

@@ -361,8 +361,9 @@ function initTargetSlider() {
         updateDots();
     }
 
-    // Reset scroll to first item on init
-    track.scrollLeft = 0;
+    // Reset scroll to first item after layout completes
+    setTimeout(function() { track.scrollLeft = 0; }, 50);
+    setTimeout(function() { track.scrollLeft = 0; }, 200);
 
     // Arrow buttons
     if (prevBtn) {
@@ -424,8 +425,27 @@ function initScrollSnapDots(containerSel, itemSel, dotsSel, dotClass) {
 
     var dots = dotsContainer.querySelectorAll('.' + dotClass);
 
-    // Reset scroll to first item on init
-    container.scrollLeft = 0;
+    // Force item widths and reset scroll on mobile
+    function resetSlider() {
+        if (window.innerWidth <= 768) {
+            var w = Math.round(window.innerWidth * 0.85);
+            items.forEach(function(item) {
+                item.style.flex = '0 0 ' + w + 'px';
+                item.style.minWidth = w + 'px';
+                item.style.maxWidth = w + 'px';
+            });
+            container.scrollLeft = 0;
+        } else {
+            items.forEach(function(item) {
+                item.style.flex = '';
+                item.style.minWidth = '';
+                item.style.maxWidth = '';
+            });
+        }
+    }
+    setTimeout(resetSlider, 50);
+    setTimeout(resetSlider, 300);
+    window.addEventListener('resize', debounce(resetSlider, 250));
 
     // Sync dots with scroll
     container.addEventListener('scroll', debounce(function() {
