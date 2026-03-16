@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initImageSliders();
     initReviewsSlider();
     initTargetSlider();
+    initScrollSnapDots('.steps-container', '.step-card', '.steps-dots', 'steps-dot');
+    initScrollSnapDots('.cop-comparison', '.cop-compare-item', '.cop-dots', 'cop-dot');
 });
 
 /* ============================================
@@ -382,6 +384,43 @@ function initTargetSlider() {
         track.style.transform = '';
         updateSlider();
     }, 250));
+}
+
+/* ============================================
+   Generic Scroll-Snap Dot Sync
+   ============================================ */
+
+function initScrollSnapDots(containerSel, itemSel, dotsSel, dotClass) {
+    var container = document.querySelector(containerSel);
+    var dotsContainer = document.querySelector(dotsSel);
+    if (!container || !dotsContainer) return;
+
+    var items = container.querySelectorAll(itemSel);
+    if (items.length === 0) return;
+
+    // Create dots
+    items.forEach(function(_, index) {
+        var dot = document.createElement('button');
+        dot.classList.add(dotClass);
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', function() {
+            items[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        });
+        dotsContainer.appendChild(dot);
+    });
+
+    var dots = dotsContainer.querySelectorAll('.' + dotClass);
+
+    // Sync dots with scroll
+    container.addEventListener('scroll', debounce(function() {
+        var scrollLeft = container.scrollLeft;
+        var itemWidth = items[0].offsetWidth + 12;
+        var newIndex = Math.round(scrollLeft / itemWidth);
+        newIndex = Math.max(0, Math.min(newIndex, items.length - 1));
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === newIndex);
+        });
+    }, 50));
 }
 
 /* ============================================

@@ -793,6 +793,10 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 24px;
 }
 
+.cop-dots {
+    display: none;
+}
+
 .cop-compare-item {
     text-align: center;
     flex: 1;
@@ -949,15 +953,15 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 6px;
     z-index: 10;
 }
 
 .slider-dot {
-    width: 10px;
-    height: 10px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.8);
+    border: 1.5px solid rgba(255, 255, 255, 0.7);
     background: transparent;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -1447,6 +1451,10 @@ h1, h2, h3, h4, h5, h6 {
     gap: 24px;
     margin-bottom: 40px;
     flex-wrap: wrap;
+}
+
+.steps-dots {
+    display: none;
 }
 
 .step-card {
@@ -2263,12 +2271,15 @@ h1, h2, h3, h4, h5, h6 {
     .solution,
     .technology,
     .benefits,
-    .recommendations,
     .howto,
     .purchase,
-    .reviews,
     .trust {
         padding: 60px 0;
+    }
+
+    .reviews,
+    .recommendations {
+        padding: 40px 0;
     }
 
     .container {
@@ -2401,7 +2412,34 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .cop-comparison {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 12px;
+        padding: 0;
+        background: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        border-radius: 0;
+    }
+
+    .cop-comparison::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cop-compare-item {
+        flex: 0 0 80vw;
+        min-width: 80vw;
+        scroll-snap-align: center;
+        background: var(--bg-light);
+        border-radius: 20px;
         padding: 24px 16px;
+        max-width: none;
+    }
+
+    .cop-compare-arrow {
+        display: none;
     }
 
     .cop-visual-box svg {
@@ -2414,6 +2452,29 @@ h1, h2, h3, h4, h5, h6 {
 
     .compare-desc li {
         font-size: 0.75rem;
+    }
+
+    .cop-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .cop-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+        border: none;
+        padding: 0;
+        transition: all 0.3s ease;
+    }
+
+    .cop-dot.active {
+        background: var(--primary);
+        width: 24px;
+        border-radius: 4px;
     }
 
     /* Solution Section */
@@ -2664,14 +2725,54 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .steps-container {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: nowrap;
         gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 8px 0;
+    }
+
+    .steps-container::-webkit-scrollbar {
+        display: none;
     }
 
     .step-card {
         padding: 28px 20px;
-        min-width: 100%;
-        max-width: 100%;
+        flex: 0 0 78vw;
+        min-width: 78vw;
+        max-width: 78vw;
+        scroll-snap-align: center;
+    }
+
+    .step-arrow {
+        display: none;
+    }
+
+    .steps-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+    }
+
+    .steps-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .steps-dot.active {
+        background: var(--primary);
+        width: 24px;
+        border-radius: 4px;
     }
 
     .step-number {
@@ -2973,12 +3074,15 @@ h1, h2, h3, h4, h5, h6 {
     .solution,
     .technology,
     .benefits,
-    .recommendations,
     .howto,
     .purchase,
-    .reviews,
     .trust {
         padding: 48px 0;
+    }
+
+    .reviews,
+    .recommendations {
+        padding: 28px 0;
     }
 
     /* Hero */
@@ -3211,17 +3315,22 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .purchase-badges {
-        gap: 8px;
+        flex-wrap: nowrap;
+        gap: 6px;
     }
 
     .badge-item {
-        flex: 0 0 calc(50% - 4px);
+        flex: 1;
         gap: 4px;
     }
 
     .badge-item svg {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .badge-item span {
+        font-size: 0.5625rem;
     }
 
     .badge-item span {
@@ -3377,7 +3486,6 @@ html {
     .btn,
     .nav-menu a,
     .mobile-menu-btn,
-    .slider-dot,
     .review-nav {
         min-height: 44px;
         min-width: 44px;
