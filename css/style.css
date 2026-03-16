@@ -266,16 +266,19 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
     flex-direction: column;
     gap: 6px;
-    background: none;
-    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
     cursor: pointer;
-    padding: 8px;
+    padding: 10px;
+    z-index: 100;
 }
 
 .mobile-menu-btn span {
     width: 24px;
-    height: 2px;
+    height: 2.5px;
     background: var(--white);
+    border-radius: 2px;
     transition: all var(--transition-fast);
 }
 
@@ -2183,6 +2186,10 @@ h1, h2, h3, h4, h5, h6 {
         margin-top: 16px;
         text-align: center;
         border-bottom: none;
+    }
+
+    .nav-container {
+        padding: 0 16px;
     }
 
     .mobile-menu-btn {
