@@ -694,6 +694,13 @@ h1, h2, h3, h4, h5, h6 {
     height: 500px;
 }
 
+.solution-video {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
 .tech-hero-image .image-slider {
     height: 400px;
 }
