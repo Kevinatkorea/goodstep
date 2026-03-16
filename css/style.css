@@ -207,14 +207,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-icon {
-    color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.logo-icon svg {
+.logo-icon img {
     display: block;
+    border-radius: 6px;
+    object-fit: contain;
 }
 
 .logo-text {
