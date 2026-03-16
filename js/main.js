@@ -425,22 +425,10 @@ function initScrollSnapDots(containerSel, itemSel, dotsSel, dotClass) {
 
     var dots = dotsContainer.querySelectorAll('.' + dotClass);
 
-    // Force item widths and reset scroll on mobile
+    // Reset scroll on mobile
     function resetSlider() {
         if (window.innerWidth <= 768) {
-            var w = Math.round(window.innerWidth * 0.85);
-            items.forEach(function(item) {
-                item.style.flex = '0 0 ' + w + 'px';
-                item.style.minWidth = w + 'px';
-                item.style.maxWidth = w + 'px';
-            });
             container.scrollLeft = 0;
-        } else {
-            items.forEach(function(item) {
-                item.style.flex = '';
-                item.style.minWidth = '';
-                item.style.maxWidth = '';
-            });
         }
     }
     setTimeout(resetSlider, 50);
