@@ -265,18 +265,20 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
-    gap: 6px;
-    background: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    gap: 5px;
+    background: rgba(255, 255, 255, 0.25);
+    border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 8px;
     cursor: pointer;
-    padding: 10px;
+    padding: 9px 8px;
     z-index: 100;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .mobile-menu-btn span {
-    width: 24px;
-    height: 2.5px;
+    width: 22px;
+    height: 3px;
     background: var(--white);
     border-radius: 2px;
     transition: all var(--transition-fast);
@@ -2189,7 +2191,17 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .nav-container {
-        padding: 0 16px;
+        padding: 0 12px;
+    }
+
+    .logo {
+        gap: 8px;
+        font-size: 1.25rem;
+    }
+
+    .logo-icon img {
+        width: 32px;
+        height: 32px;
     }
 
     .mobile-menu-btn {
@@ -3251,8 +3263,8 @@ h1, h2, h3, h4, h5, h6 {
 /* iOS Safe Area Support */
 @supports (padding: max(0px)) {
     .navbar {
-        padding-left: max(24px, env(safe-area-inset-left));
-        padding-right: max(24px, env(safe-area-inset-right));
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
     }
 
     .nav-menu {
