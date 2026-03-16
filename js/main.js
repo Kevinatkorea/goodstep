@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initHeroSlider();
     initImageSliders();
     initReviewsSlider();
+    initTargetSlider();
 });
 
 /* ============================================
@@ -273,6 +274,113 @@ function initReviewsSlider() {
             currentIndex = newMaxIndex;
             updateSlider();
         }
+    }, 250));
+}
+
+/* ============================================
+   Target Recommendations Slider
+   ============================================ */
+
+function initTargetSlider() {
+    const wrapper = document.querySelector('.target-slider-wrapper');
+    if (!wrapper) return;
+
+    const track = wrapper.querySelector('.target-grid');
+    const cards = wrapper.querySelectorAll('.target-card');
+    const prevBtn = wrapper.querySelector('.target-prev');
+    const nextBtn = wrapper.querySelector('.target-next');
+    const dotsContainer = document.querySelector('.target-dots');
+
+    if (!track || cards.length === 0) return;
+
+    let currentIndex = 0;
+
+    // Create dots
+    if (dotsContainer) {
+        cards.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('target-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateSlider();
+            });
+            dotsContainer.appendChild(dot);
+        });
+    }
+
+    const dots = dotsContainer ? dotsContainer.querySelectorAll('.target-dot') : [];
+
+    function getVisibleCards() {
+        if (window.innerWidth > 768) return cards.length;
+        if (window.innerWidth > 576) return 2;
+        return 1;
+    }
+
+    function getMaxIndex() {
+        return Math.max(0, cards.length - getVisibleCards());
+    }
+
+    function updateDots() {
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function updateSlider() {
+        if (window.innerWidth > 768) {
+            track.style.transform = '';
+            return;
+        }
+
+        if (window.innerWidth <= 576) {
+            // Mobile: scroll to card position
+            const cardEl = cards[currentIndex];
+            if (cardEl) {
+                cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            updateDots();
+            return;
+        }
+
+        // Tablet: JS transform
+        const cardWidth = cards[0].offsetWidth + 20;
+        currentIndex = Math.min(currentIndex, getMaxIndex());
+        track.style.transform = 'translateX(-' + (currentIndex * cardWidth) + 'px)';
+        updateDots();
+    }
+
+    // Arrow buttons
+    if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+            currentIndex = currentIndex > 0 ? currentIndex - 1 : getMaxIndex();
+            updateSlider();
+        });
+    }
+    if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+            currentIndex = currentIndex < getMaxIndex() ? currentIndex + 1 : 0;
+            updateSlider();
+        });
+    }
+
+    // Mobile: sync dots with scroll position
+    track.addEventListener('scroll', debounce(function() {
+        if (window.innerWidth > 576) return;
+        var scrollLeft = track.scrollLeft;
+        var cardWidth = cards[0].offsetWidth + 16;
+        var newIndex = Math.round(scrollLeft / cardWidth);
+        if (newIndex !== currentIndex && newIndex >= 0 && newIndex < cards.length) {
+            currentIndex = newIndex;
+            updateDots();
+        }
+    }, 50));
+
+    // Resize handler
+    window.addEventListener('resize', debounce(function() {
+        currentIndex = Math.min(currentIndex, getMaxIndex());
+        track.style.transform = '';
+        updateSlider();
     }, 250));
 }
 

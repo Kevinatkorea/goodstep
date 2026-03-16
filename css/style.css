@@ -2050,14 +2050,53 @@ h1, h2, h3, h4, h5, h6 {
         padding: 40px 24px;
     }
 
-    /* Target Recommendations */
+    /* Target Recommendations - Slider Mode */
+    .target-slider-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .target-slider {
+        flex: 1;
+        overflow: hidden;
+    }
+
     .target-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
         gap: 20px;
+        transition: transform 0.4s ease;
     }
 
     .target-card {
+        flex: 0 0 calc(50% - 10px);
+        min-width: calc(50% - 10px);
         padding: 28px 20px;
+    }
+
+    .target-nav {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid var(--primary);
+        background: var(--white);
+        color: var(--primary);
+        cursor: pointer;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition: all var(--transition-fast);
+    }
+
+    .target-nav:hover {
+        background: var(--primary);
+        color: var(--white);
+    }
+
+    .target-nav svg {
+        width: 20px;
+        height: 20px;
     }
 
     /* How to Use */
@@ -2528,13 +2567,41 @@ h1, h2, h3, h4, h5, h6 {
         font-weight: 600;
     }
 
-    /* Target Recommendations */
+    /* Target Recommendations - Scroll Snap Mode */
+    .target-slider-wrapper {
+        display: block;
+    }
+
+    .target-nav {
+        display: none;
+    }
+
+    .target-slider {
+        overflow: visible;
+    }
+
     .target-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        display: flex !important;
+        flex-wrap: nowrap;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding: 8px 0;
+        transition: none;
+        transform: none !important;
+    }
+
+    .target-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .target-card {
+        flex: 0 0 78vw;
+        min-width: 78vw;
+        max-width: 78vw;
+        scroll-snap-align: center;
         padding: 24px 20px;
     }
 
@@ -2559,6 +2626,30 @@ h1, h2, h3, h4, h5, h6 {
 
     .target-benefits li {
         font-size: 0.75rem;
+    }
+
+    .target-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .target-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ccc;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .target-dot.active {
+        background: var(--primary);
+        width: 24px;
+        border-radius: 4px;
     }
 
     /* How to Use */
@@ -3374,6 +3465,23 @@ html {
 .recommendations {
     padding: 120px 0;
     background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+/* Target Slider Wrapper - inactive on desktop */
+.target-slider-wrapper {
+    position: relative;
+}
+
+.target-slider {
+    overflow: visible;
+}
+
+.target-nav {
+    display: none;
+}
+
+.target-dots {
+    display: none;
 }
 
 .target-grid {
