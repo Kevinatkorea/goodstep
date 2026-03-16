@@ -9,9 +9,137 @@ document.addEventListener('DOMContentLoaded', function() {
     initSmoothScroll();
     initScrollAnimations();
     initNavbarScroll();
+    initHeroSlider();
     initImageSliders();
     initReviewsSlider();
 });
+
+/* ============================================
+   Hero Slider (background + text synced)
+   ============================================ */
+
+function initHeroSlider() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    const bgSlides = hero.querySelectorAll('.hero-slide');
+    const textSlides = hero.querySelectorAll('.hero-text-slide');
+    const dotsContainer = hero.querySelector('.hero-dots');
+    const prevBtn = hero.querySelector('.hero-prev');
+    const nextBtn = hero.querySelector('.hero-next');
+    const progressBar = hero.querySelector('.hero-progress-bar');
+
+    if (bgSlides.length <= 1) return;
+
+    let currentIndex = 0;
+    let autoSlideTimer;
+    let progressTimer;
+    const interval = 6000; // 6 seconds per slide
+    const progressStep = 30; // update every 30ms
+
+    // Create dots
+    bgSlides.forEach((_, index) => {
+        const dot = document.createElement('button');
+        dot.classList.add('hero-dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('aria-label', '슬라이드 ' + (index + 1));
+        dot.addEventListener('click', () => goToSlide(index));
+        dotsContainer.appendChild(dot);
+    });
+
+    const dots = dotsContainer.querySelectorAll('.hero-dot');
+
+    function goToSlide(index) {
+        // Remove active from current
+        bgSlides[currentIndex].classList.remove('active');
+        textSlides[currentIndex].classList.remove('active');
+        if (dots[currentIndex]) dots[currentIndex].classList.remove('active');
+
+        // Update index
+        currentIndex = index;
+        if (currentIndex >= bgSlides.length) currentIndex = 0;
+        if (currentIndex < 0) currentIndex = bgSlides.length - 1;
+
+        // Add active to new
+        bgSlides[currentIndex].classList.add('active');
+        textSlides[currentIndex].classList.add('active');
+        if (dots[currentIndex]) dots[currentIndex].classList.add('active');
+
+        // Reset progress
+        resetProgress();
+    }
+
+    function nextSlide() {
+        goToSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        goToSlide(currentIndex - 1);
+    }
+
+    // Progress bar
+    function resetProgress() {
+        if (progressBar) {
+            progressBar.style.transition = 'none';
+            progressBar.style.width = '0%';
+            // Force reflow
+            progressBar.offsetHeight;
+            progressBar.style.transition = 'width ' + interval + 'ms linear';
+            progressBar.style.width = '100%';
+        }
+    }
+
+    function startAutoSlide() {
+        stopAutoSlide();
+        autoSlideTimer = setInterval(nextSlide, interval);
+        resetProgress();
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideTimer);
+    }
+
+    // Arrow navigation
+    if (prevBtn) prevBtn.addEventListener('click', () => { goToSlide(currentIndex - 1); startAutoSlide(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { goToSlide(currentIndex + 1); startAutoSlide(); });
+
+    // Pause on hover
+    hero.addEventListener('mouseenter', stopAutoSlide);
+    hero.addEventListener('mouseleave', startAutoSlide);
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    hero.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    hero.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                goToSlide(currentIndex + 1);
+            } else {
+                goToSlide(currentIndex - 1);
+            }
+            startAutoSlide();
+        }
+    }, { passive: true });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') { goToSlide(currentIndex - 1); startAutoSlide(); }
+        if (e.key === 'ArrowRight') { goToSlide(currentIndex + 1); startAutoSlide(); }
+    });
+
+    // Start
+    startAutoSlide();
+
+    // Mark hero as loaded for CTA animation
+    setTimeout(() => hero.classList.add('loaded'), 100);
+}
 
 /* ============================================
    Image Sliders
@@ -342,25 +470,8 @@ function debounce(func, wait) {
 }
 
 /* ============================================
-   Optional: Parallax Effect for Hero
+   Optional: Parallax Effect for Hero (removed - using slider)
    ============================================ */
-
-(function() {
-    const hero = document.querySelector('.hero');
-    const productFloat = document.querySelector('.product-float');
-
-    if (hero && productFloat) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.scrollY;
-            const heroHeight = hero.offsetHeight;
-
-            if (scrolled < heroHeight) {
-                const parallaxValue = scrolled * 0.3;
-                productFloat.style.transform = `translateY(${parallaxValue}px) rotate(${-5 + scrolled * 0.02}deg)`;
-            }
-        });
-    }
-})();
 
 /* ============================================
    Optional: Counter Animation
@@ -453,15 +564,6 @@ document.querySelectorAll('.btn-purchase, .nav-cta').forEach(btn => {
 
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
-
-    // Trigger initial animations
-    setTimeout(() => {
-        document.querySelectorAll('.hero .fade-in').forEach((el, index) => {
-            setTimeout(() => {
-                el.classList.add('visible');
-            }, index * 150);
-        });
-    }, 100);
 });
 
 console.log('Good Step Website Initialized');
