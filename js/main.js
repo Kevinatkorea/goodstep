@@ -351,6 +351,9 @@ function initTargetSlider() {
         updateDots();
     }
 
+    // Reset scroll to first item on init
+    track.scrollLeft = 0;
+
     // Arrow buttons
     if (prevBtn) {
         prevBtn.addEventListener('click', function() {
@@ -410,6 +413,9 @@ function initScrollSnapDots(containerSel, itemSel, dotsSel, dotClass) {
     });
 
     var dots = dotsContainer.querySelectorAll('.' + dotClass);
+
+    // Reset scroll to first item on init
+    container.scrollLeft = 0;
 
     // Sync dots with scroll
     container.addEventListener('scroll', debounce(function() {
