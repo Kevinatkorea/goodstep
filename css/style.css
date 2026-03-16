@@ -2415,10 +2415,11 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: row;
         flex-wrap: nowrap;
         gap: 12px;
-        padding: 0;
+        padding: 8px 16px;
         background: none;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        scroll-padding-left: 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
         border-radius: 0;
@@ -2431,7 +2432,7 @@ h1, h2, h3, h4, h5, h6 {
     .cop-compare-item {
         flex: 0 0 80vw;
         min-width: 80vw;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         background: var(--bg-light);
         border-radius: 20px;
         padding: 24px 16px;
@@ -2647,9 +2648,10 @@ h1, h2, h3, h4, h5, h6 {
         gap: 12px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        scroll-padding-left: 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding: 8px 0;
+        padding: 8px 16px;
         transition: none;
         transform: none !important;
     }
@@ -2662,7 +2664,7 @@ h1, h2, h3, h4, h5, h6 {
         flex: 0 0 78vw;
         min-width: 78vw;
         max-width: 78vw;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
         padding: 24px 20px;
     }
 
@@ -2730,9 +2732,10 @@ h1, h2, h3, h4, h5, h6 {
         gap: 12px;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        scroll-padding-left: 16px;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: none;
-        padding: 8px 0;
+        padding: 8px 16px;
     }
 
     .steps-container::-webkit-scrollbar {
@@ -2744,7 +2747,7 @@ h1, h2, h3, h4, h5, h6 {
         flex: 0 0 78vw;
         min-width: 78vw;
         max-width: 78vw;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
     }
 
     .step-arrow {

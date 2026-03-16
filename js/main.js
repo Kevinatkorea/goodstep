@@ -133,6 +133,7 @@ function initHeroSlider() {
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
+        if (!isInViewport(hero, 0.3)) return;
         if (e.key === 'ArrowLeft') { goToSlide(currentIndex - 1); startAutoSlide(); }
         if (e.key === 'ArrowRight') { goToSlide(currentIndex + 1); startAutoSlide(); }
     });
@@ -337,10 +338,8 @@ function initTargetSlider() {
 
         if (window.innerWidth <= 576) {
             // Mobile: scroll to card position
-            const cardEl = cards[currentIndex];
-            if (cardEl) {
-                cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-            }
+            var cardWidth = cards[0].offsetWidth + 12;
+            track.scrollTo({ left: currentIndex * cardWidth, behavior: 'smooth' });
             updateDots();
             return;
         }
@@ -404,7 +403,8 @@ function initScrollSnapDots(containerSel, itemSel, dotsSel, dotClass) {
         dot.classList.add(dotClass);
         if (index === 0) dot.classList.add('active');
         dot.addEventListener('click', function() {
-            items[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            var itemWidth = items[0].offsetWidth + 12;
+            container.scrollTo({ left: index * itemWidth, behavior: 'smooth' });
         });
         dotsContainer.appendChild(dot);
     });
