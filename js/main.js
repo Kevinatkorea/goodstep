@@ -231,23 +231,33 @@ function initReviewsSlider() {
     const maxIndex = Math.max(0, cards.length - visibleCards);
 
     function updateSlider() {
-        track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        if (window.innerWidth <= 768) {
+            // Mobile: use scrollTo for CSS scroll-snap
+            var w = cards[0].offsetWidth + 24;
+            track.scrollTo({ left: currentIndex * w, behavior: 'smooth' });
+        } else {
+            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
     }
 
     function goToNext() {
-        if (currentIndex < maxIndex) {
+        var vis = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        var max = Math.max(0, cards.length - vis);
+        if (currentIndex < max) {
             currentIndex++;
         } else {
-            currentIndex = 0; // Loop back to start
+            currentIndex = 0;
         }
         updateSlider();
     }
 
     function goToPrev() {
+        var vis = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        var max = Math.max(0, cards.length - vis);
         if (currentIndex > 0) {
             currentIndex--;
         } else {
-            currentIndex = maxIndex; // Loop to end
+            currentIndex = max;
         }
         updateSlider();
     }
