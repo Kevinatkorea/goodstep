@@ -163,6 +163,12 @@ function initImageSliders() {
 
         if (slides.length <= 1) return;
 
+        // tech-slider: PC에서는 슬라이더 비활성화 (세로 나열)
+        if (slider.classList.contains('tech-slider') && window.innerWidth > 768) {
+            slides.forEach(s => { s.classList.add('active'); s.style.opacity = '1'; });
+            return;
+        }
+
         // Create dots
         if (dotsContainer) {
             slides.forEach((_, index) => {

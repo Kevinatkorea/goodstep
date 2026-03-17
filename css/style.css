@@ -702,7 +702,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .tech-hero-image .image-slider {
-    height: 400px;
+    height: auto;
 }
 
 .cop-image-caption {
@@ -1017,14 +1017,32 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 24px;
 }
 
-/* Tech Slider */
+/* Tech Slider — PC: 세로 나열 / 모바일: 슬라이더 */
 .tech-slider {
-    height: 400px;
+    height: auto;
     border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tech-slider .slide {
+    position: relative;
+    opacity: 1;
+    width: 100%;
+    height: auto;
+    transition: none;
 }
 
 .tech-slider .slide img {
-    border-radius: 24px;
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.tech-slider .slider-dots {
+    display: none;
 }
 
 /* Benefits Bottom Slider */
@@ -2598,10 +2616,37 @@ h1, h2, h3, h4, h5, h6 {
         padding: 20px 24px;
     }
 
-    /* Technology Section */
-    .tech-hero-image .image-slider,
+    /* Technology Section — 모바일: 슬라이더 복원 */
+    .tech-hero-image .image-slider {
+        height: 400px;
+        position: relative;
+    }
+
     .tech-slider {
-        height: 220px;
+        display: block;
+        height: 400px;
+    }
+
+    .tech-slider .slide {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        height: 100%;
+        transition: opacity 1s ease-in-out;
+    }
+
+    .tech-slider .slide.active {
+        opacity: 1;
+    }
+
+    .tech-slider .slide img {
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .tech-slider .slider-dots {
+        display: flex;
     }
 
     .tech-card {
