@@ -12,6 +12,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- Promo Banner -->
+    <div class="promo-banner">
+        <div class="promo-content">
+            <span class="promo-badge">한정</span>
+            <span class="promo-text"><strong>초도 물량 한정 판매 중</strong> — 무료배송 + 보행교정 가이드 PDF 증정</span>
+            <a href="#purchase" class="promo-cta">지금 확인 →</a>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -28,6 +37,7 @@
                 <li><a href="#benefits">Benefits</a></li>
                 <li><a href="#howto">How to Use</a></li>
                 <li><a href="#trust">Trust</a></li>
+                <li><a href="#faq">FAQ</a></li>
                 <li><a href="#purchase" class="nav-cta">Shop Now</a></li>
             </ul>
             <button class="mobile-menu-btn" aria-label="메뉴">
@@ -88,6 +98,9 @@
                     <h1 class="hero-title">걸음의 과학이<br><span class="highlight">건강을 만듭니다</span></h1>
                     <p class="hero-description">디자인 등록 기술 기반 프리미엄 인솔</p>
                 </div>
+            </div>
+            <div class="hero-rating-badge fade-in">
+                <span class="star filled">★</span> 4.8점 <span class="hero-badge-divider">|</span> 실구매 후기 기반
             </div>
             <div class="hero-cta">
                 <a href="#purchase" class="btn btn-primary">55,000원 구매하기</a>
@@ -385,25 +398,15 @@
                 </div>
                 <div class="solution-image fade-in">
                     <div class="product-showcase">
-                        <svg class="insole-large" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <!-- Main Insole -->
-                            <path d="M200 40 C280 40, 340 100, 350 200 C360 300, 340 400, 300 450 C260 490, 220 500, 200 500 C180 500, 140 490, 100 450 C60 400, 40 300, 50 200 C60 100, 120 40, 200 40Z" fill="url(#insoleLargeGradient)" stroke="#00CED1" stroke-width="3"/>
-                            <!-- Arch Support -->
-                            <ellipse cx="140" cy="320" rx="60" ry="90" fill="#00CED1" opacity="0.7"/>
-                            <!-- Forefoot Area -->
-                            <ellipse cx="260" cy="160" rx="50" ry="70" fill="#00CED1" opacity="0.5"/>
-                            <!-- CoP Guide Line -->
-                            <path d="M200 460 Q140 380, 150 300 Q160 220, 200 120" stroke="#00FF88" stroke-width="4" fill="none"/>
-                            <!-- Brand Text -->
-                            <text x="200" y="280" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="bold">Good Step</text>
-                            <defs>
-                                <linearGradient id="insoleLargeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#3a3a3a"/>
-                                    <stop offset="50%" style="stop-color:#2a2a2a"/>
-                                    <stop offset="100%" style="stop-color:#1a1a1a"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                        <div class="image-slider solution-product-slider" data-interval="4000">
+                            <div class="slide active">
+                                <img src="images/insole-top.jpg" alt="굿스텝 인솔 탑뷰">
+                            </div>
+                            <div class="slide">
+                                <img src="images/insole-side.jpg" alt="굿스텝 인솔 측면뷰">
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -605,6 +608,11 @@
                 </div>
             </div>
 
+            <div class="section-cta fade-in">
+                <p class="section-cta-text">내 걸음을 바로잡는 첫 번째 선택</p>
+                <a href="#purchase" class="btn btn-primary section-cta-btn">지금 시작하기 →</a>
+            </div>
+
             <!-- Benefits Bottom Image Slider -->
             <div class="benefits-bottom-image fade-in">
                 <div class="image-slider benefits-slider" data-interval="4500">
@@ -650,6 +658,7 @@
                             </div>
                             <span class="target-tag">40-60대</span>
                             <h3>건강한 100세를 위한 첫걸음</h3>
+                            <p class="target-quote">"지금 내 걸음이 10년 후 내 무릎을 결정합니다."</p>
                             <p>근감소증 예방과 관절 보호로<br>오래오래 건강하게 걸으세요</p>
                             <ul class="target-benefits">
                                 <li>무릎/허리 부담 감소</li>
@@ -669,6 +678,7 @@
                             </div>
                             <span class="target-tag">러너/워커</span>
                             <h3>더 멀리, 더 오래 달리세요</h3>
+                            <p class="target-quote">"발목이 흔들리면 기록도 흔들립니다."</p>
                             <p>효율적인 보행으로<br>부상 없이 기록을 향상하세요</p>
                             <ul class="target-benefits">
                                 <li>부상 예방</li>
@@ -687,6 +697,7 @@
                             </div>
                             <span class="target-tag">직장인</span>
                             <h3>하루종일 서있어도 가뿐하게</h3>
+                            <p class="target-quote">"퇴근 후 발 통증, 이제 당연한 게 아닙니다."</p>
                             <p>영업직, 서비스직, 교사, 간호사 등<br>오래 서있는 분들의 필수템</p>
                             <ul class="target-benefits">
                                 <li>발 피로 감소</li>
@@ -723,6 +734,7 @@
                             </div>
                             <span class="target-tag">효도 선물</span>
                             <h3>부모님께 드리는 건강</h3>
+                            <p class="target-quote">"꽃은 시들지만, 건강한 걸음은 평생 남습니다."</p>
                             <p>실용적이고 의미있는 선물<br>부모님 건강을 응원하세요</p>
                             <ul class="target-benefits">
                                 <li>실용적인 건강 선물</li>
@@ -820,6 +832,11 @@
 
             <p class="steps-note fade-in">이러한 보행은 보행 균형 개선, CoP 라인 훈련, 보행 효율 향상에 도움이 됩니다.</p>
 
+            <div class="cop-awareness-tip fade-in">
+                <strong>효과 극대화 팁</strong>
+                <p>CoP(압력중심) 라인을 의식하면서 걸으면 교정 효과가 극대화됩니다. 처음에는 의식적으로 3단계 보행법을 연습하세요.</p>
+            </div>
+
             <!-- Usage Guide -->
             <div class="usage-guide fade-in">
                 <h3>최적의 효과를 위한 올바른 사용법</h3>
@@ -833,7 +850,8 @@
                             </svg>
                         </div>
                         <h4>신발 선택</h4>
-                        <p>운동화, 워킹화 등 갑피가 높은 신발에 사용하세요.</p>
+                        <p>운동화, 트레이닝화, 워킹화 등 갑피가 높은 신발에 사용하세요.</p>
+                        <p class="usage-warning">구두, 단화, 로퍼 등 갑피가 낮은 신발에는 착용이 어렵습니다.</p>
                     </div>
                     <div class="usage-card">
                         <div class="usage-icon">
@@ -844,7 +862,7 @@
                             </svg>
                         </div>
                         <h4>인솔 교체</h4>
-                        <p>신발의 기존 인솔을 제거한 후 굿스텝으로 교체하세요.</p>
+                        <p>신발 내부의 기존 인솔을 제거한 후 본 인솔로 교체하여 사용하세요.</p>
                     </div>
                     <div class="usage-card">
                         <div class="usage-icon">
@@ -868,19 +886,18 @@
             <div class="purchase-wrapper">
                 <div class="purchase-product fade-in">
                     <div class="product-display">
-                        <svg class="product-main" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M150 30 C210 30, 255 75, 262 150 C270 225, 255 320, 225 365 C195 405, 165 415, 150 415 C135 415, 105 405, 75 365 C45 320, 30 225, 38 150 C45 75, 90 30, 150 30Z" fill="url(#productGradient)" stroke="#00CED1" stroke-width="2"/>
-                            <ellipse cx="105" cy="260" rx="45" ry="70" fill="#00CED1" opacity="0.6"/>
-                            <ellipse cx="195" cy="130" rx="35" ry="55" fill="#00CED1" opacity="0.4"/>
-                            <path d="M150 380 Q105 300, 115 230 Q125 160, 150 80" stroke="#00FF88" stroke-width="3" fill="none"/>
-                            <text x="150" y="220" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">Good Step</text>
-                            <defs>
-                                <linearGradient id="productGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#3a3a3a"/>
-                                    <stop offset="100%" style="stop-color:#1a1a1a"/>
-                                </linearGradient>
-                            </defs>
-                        </svg>
+                        <div class="image-slider purchase-product-slider" data-interval="5000">
+                            <div class="slide active">
+                                <img src="images/insole-top.jpg" alt="굿스텝 인솔">
+                            </div>
+                            <div class="slide">
+                                <img src="images/insole-side.jpg" alt="굿스텝 인솔 측면">
+                            </div>
+                            <div class="slide">
+                                <img src="images/package-3d.jpg" alt="굿스텝 패키지">
+                            </div>
+                            <div class="slider-dots"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="purchase-info fade-in">
@@ -916,16 +933,28 @@
                         <span class="price-note">무료배송</span>
                     </div>
 
+                    <div class="price-anchoring">
+                        <p class="price-anchor-main">족저근막염 치료비 평균 <strong>30~80만원</strong></p>
+                        <p class="price-anchor-sub">굿스텝은 단돈 <strong>55,000원</strong>으로 예방합니다</p>
+                    </div>
+
                     <a href="https://smartstore.naver.com/peeplan" class="btn btn-purchase" target="_blank" rel="noopener noreferrer">
                         <span>구매하러 가기</span>
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5 10H15M15 10L10 5M15 10L10 15" stroke="currentColor" stroke-width="2"/>
                         </svg>
                     </a>
-                    <p class="purchase-note">* 외부 쇼핑몰로 이동합니다</p>
+                    <p class="purchase-note">네이버 스마트스토어에서 안전하게 구매하실 수 있습니다</p>
 
                     <!-- Purchase Trust Badges -->
                     <div class="purchase-badges">
+                        <div class="badge-item badge-highlight">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M8 12L10.5 14.5L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                            <span>30일 환불 보장</span>
+                        </div>
                         <div class="badge-item">
                             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
@@ -967,6 +996,10 @@
                 <p class="section-label fade-in">REVIEWS</p>
                 <h2 class="section-title fade-in">실제 사용자들의<br><span class="highlight">생생한 후기</span></h2>
                 <p class="section-subtitle fade-in">굿스텝을 먼저 경험한 분들의 이야기입니다</p>
+                <div class="review-source-badge fade-in">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M9 12L11 14L15 10M21 12C21 16.97 16.97 21 12 21C7.03 21 3 16.97 3 12C3 7.03 7.03 3 12 3C16.97 3 21 7.03 21 12Z" stroke="currentColor" stroke-width="2"/></svg>
+                    네이버 스마트스토어 실구매 후기
+                </div>
             </div>
 
             <div class="reviews-stats fade-in">
@@ -1098,6 +1131,11 @@
                     </svg>
                 </button>
             </div>
+
+            <div class="section-cta fade-in">
+                <p class="section-cta-text">4.8점의 선택, 나도 경험해보기</p>
+                <a href="https://smartstore.naver.com/peeplan" class="btn btn-primary section-cta-btn" target="_blank" rel="noopener noreferrer">구매하러 가기 →</a>
+            </div>
         </div>
     </section>
 
@@ -1165,6 +1203,80 @@
             </div>
         </div>
     </section>
+
+    <!-- Section: FAQ -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label fade-in">FAQ</p>
+                <h2 class="section-title fade-in">자주 묻는<br><span class="highlight">질문</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item fade-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>사이즈는 어떻게 선택하나요?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>신발 사이즈 기준으로 동일한 사이즈를 선택하시면 됩니다. 인솔을 신발에 넣은 후, 발 뒤꿈치가 인솔 뒤쪽에 맞닿도록 위치를 조정해주세요. 만약 인솔이 약간 크다면 앞부분을 가위로 잘라 조절할 수 있습니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>딱딱하지 않나요? 쿠션은 어떤가요?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>3중 레이어(Polyester + PU Foam + EVA) 구조로 충격 흡수와 쿠션감을 모두 갖추었습니다. CoP 교정 구조는 단단하게 지지하되, 상단 PU 폼 레이어가 부드러운 착용감을 제공합니다. 일반 쿠션 인솔과 달리 '탄탄하면서 편안한' 느낌입니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>세탁이 가능한가요?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>중성 세제를 사용하여 미지근한 물에 가볍게 손세탁해주세요. 세탁기 사용은 인솔 형태를 변형시킬 수 있어 권장하지 않습니다. 세탁 후에는 직사광선을 피하고 통풍이 잘 되는 곳에서 자연 건조해주세요.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>언제쯤 효과를 느낄 수 있나요?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>개인차가 있지만, 보통 2~4주 꾸준히 착용하시면 보행 변화를 체감하실 수 있습니다. 초기에는 발 근육이 새로운 정렬에 적응하면서 약간의 뻐근함이 있을 수 있으나, 이는 정상적인 과정입니다. 3단계 보행법을 의식하며 걸으시면 효과가 더 빠릅니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>발볼이 넓거나 평발인데 괜찮을까요?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>네, 오히려 평발이나 발볼이 넓은 분들께 더 도움이 될 수 있습니다. 아치 서포트 구조가 무너진 아치를 지지해주고, CoP 라인 교정 구조가 압력 분산을 유도하여 발의 피로를 줄여줍니다. 다만 갑피가 높은 운동화에 사용하셔야 발볼에 무리가 없습니다.</p>
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>교환/환불은 어떻게 하나요?</span>
+                        <svg class="faq-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>구매 후 30일 이내 만족하지 못하시면 무조건 환불해드립니다. 네이버 스마트스토어를 통해 간편하게 교환/환불 신청이 가능하며, 반품 배송비만 부담하시면 됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Mobile CTA -->
+    <div class="floating-cta">
+        <a href="https://smartstore.naver.com/peeplan" class="floating-cta-btn" target="_blank" rel="noopener noreferrer">
+            <span class="floating-price">55,000원</span>
+            <span class="floating-text">구매하기</span>
+        </a>
+    </div>
 
     <!-- Section 9: Footer -->
     <footer id="footer" class="footer">

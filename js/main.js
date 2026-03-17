@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initTargetSlider();
     initScrollSnapDots('.steps-container', '.step-card', '.steps-dots', 'steps-dot');
     initScrollSnapDots('.cop-comparison', '.cop-compare-item', '.cop-dots', 'cop-dot');
+    initFAQ();
+    initFloatingCTA();
 });
 
 /* ============================================
@@ -736,5 +738,57 @@ document.querySelectorAll('.btn-purchase, .nav-cta').forEach(btn => {
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
 });
+
+/* ============================================
+   FAQ Accordion
+   ============================================ */
+
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-question');
+
+    faqItems.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            const item = this.parentElement;
+            const isOpen = item.classList.contains('open');
+
+            // Close all other items
+            document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+                if (openItem !== item) {
+                    openItem.classList.remove('open');
+                    openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current item
+            item.classList.toggle('open', !isOpen);
+            this.setAttribute('aria-expanded', !isOpen);
+        });
+    });
+}
+
+/* ============================================
+   Floating CTA (mobile only)
+   ============================================ */
+
+function initFloatingCTA() {
+    var floatingCta = document.querySelector('.floating-cta');
+    if (!floatingCta) return;
+
+    var purchaseSection = document.querySelector('#purchase');
+    var heroSection = document.querySelector('#hero');
+
+    window.addEventListener('scroll', throttle(function() {
+        var scrollY = window.scrollY;
+        var heroBottom = heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 600;
+        var purchaseTop = purchaseSection ? purchaseSection.offsetTop - window.innerHeight : Infinity;
+
+        // Show after hero, hide when purchase section is visible
+        if (scrollY > heroBottom && scrollY < purchaseTop) {
+            floatingCta.classList.add('visible');
+        } else {
+            floatingCta.classList.remove('visible');
+        }
+    }, 100));
+}
 
 console.log('Good Step Website Initialized');

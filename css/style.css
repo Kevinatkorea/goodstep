@@ -1210,6 +1210,21 @@ h1, h2, h3, h4, h5, h6 {
     animation: floatSlow 8s ease-in-out infinite;
 }
 
+.solution-product-slider {
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 20px 60px rgba(0, 206, 209, 0.3);
+}
+
+.solution-product-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 @keyframes floatSlow {
     0%, 100% { transform: translateY(0) rotate(-3deg); }
     50% { transform: translateY(-15px) rotate(3deg); }
@@ -1523,7 +1538,42 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     font-size: 1rem;
     color: var(--medium-gray);
+    margin-bottom: 40px;
+}
+
+.cop-awareness-tip {
+    background: linear-gradient(135deg, rgba(0, 102, 204, 0.05), rgba(0, 206, 209, 0.08));
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    padding: 24px 32px;
     margin-bottom: 80px;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cop-awareness-tip strong {
+    color: var(--accent);
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.cop-awareness-tip p {
+    color: var(--medium-gray);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.usage-warning {
+    color: var(--danger);
+    font-size: 0.8125rem;
+    margin-top: 8px;
+}
+
+.usage-warning::before {
+    content: "⚠ ";
 }
 
 /* Usage Guide */
@@ -1599,6 +1649,21 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 350px;
     filter: drop-shadow(0 30px 60px rgba(0, 206, 209, 0.4));
     animation: floatSlow 8s ease-in-out infinite;
+}
+
+.purchase-product-slider {
+    max-width: 450px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    box-shadow: 0 20px 60px rgba(0, 206, 209, 0.4);
+}
+
+.purchase-product-slider .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .product-label {
@@ -1911,7 +1976,8 @@ h1, h2, h3, h4, h5, h6 {
     .howto,
     .purchase,
     .reviews,
-    .trust {
+    .trust,
+    .faq {
         padding: 80px 0;
     }
 
@@ -2004,6 +2070,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .insole-large {
         max-width: 280px;
+    }
+
+    .solution-product-slider {
+        max-width: 350px;
     }
 
     /* Technology Section */
@@ -2136,6 +2206,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .product-main {
         max-width: 250px;
+    }
+
+    .purchase-product-slider {
+        max-width: 350px;
     }
 
     /* Reviews Section */
@@ -2516,6 +2590,14 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 220px;
     }
 
+    .solution-product-slider {
+        max-width: 100%;
+    }
+
+    .cop-awareness-tip {
+        padding: 20px 24px;
+    }
+
     /* Technology Section */
     .tech-hero-image .image-slider,
     .tech-slider {
@@ -2852,6 +2934,10 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 200px;
     }
 
+    .purchase-product-slider {
+        max-width: 100%;
+    }
+
     .product-label {
         font-size: 0.75rem;
     }
@@ -3064,6 +3150,31 @@ h1, h2, h3, h4, h5, h6 {
     .footer-bottom {
         font-size: 0.75rem;
     }
+
+    /* Floating CTA - show on mobile */
+    .floating-cta {
+        display: block;
+    }
+
+    /* FAQ responsive */
+    .faq-question {
+        font-size: 0.9375rem;
+        padding: 20px 0;
+    }
+
+    .faq-answer p {
+        font-size: 0.875rem;
+    }
+
+    /* Promo banner adjust */
+    .promo-text strong {
+        display: block;
+    }
+
+    /* Add bottom padding for floating CTA */
+    .footer {
+        padding-bottom: 80px !important;
+    }
 }
 
 /* Mobile Phones (max-width: 576px) */
@@ -3080,13 +3191,44 @@ h1, h2, h3, h4, h5, h6 {
     .benefits,
     .howto,
     .purchase,
-    .trust {
+    .trust,
+    .faq {
         padding: 48px 0;
     }
 
     .reviews,
     .recommendations {
         padding: 16px 0;
+    }
+
+    /* Promo Banner mobile */
+    .promo-banner {
+        font-size: 0.75rem;
+        padding: 8px 12px;
+    }
+
+    .promo-content {
+        gap: 8px;
+    }
+
+    .promo-text {
+        font-size: 0.75rem;
+    }
+
+    /* FAQ mobile */
+    .faq-question {
+        font-size: 0.875rem;
+        padding: 16px 0;
+    }
+
+    .faq-answer p {
+        font-size: 0.8125rem;
+    }
+
+    /* Target quote mobile */
+    .target-quote {
+        font-size: 0.75rem;
+        padding: 6px 10px;
     }
 
     /* Hero */
@@ -3934,5 +4076,302 @@ html {
 .badge-item span {
     font-size: 0.75rem;
     font-weight: 500;
+}
+
+/* ============================================
+   Promo Banner
+   ============================================ */
+.promo-banner {
+    background: linear-gradient(90deg, #0066CC, #00CED1);
+    color: var(--white);
+    text-align: center;
+    padding: 10px 16px;
+    font-size: 0.875rem;
+    position: relative;
+    z-index: 1001;
+}
+
+.promo-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.promo-badge {
+    background: rgba(255,255,255,0.2);
+    color: var(--white);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    animation: promoPulse 2s ease-in-out infinite;
+}
+
+@keyframes promoPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.promo-text {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+}
+
+.promo-cta {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.8125rem;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    transition: border-color var(--transition-fast);
+}
+
+.promo-cta:hover {
+    border-color: var(--white);
+}
+
+/* ============================================
+   Hero Rating Badge (previous session)
+   ============================================ */
+.hero-rating-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 0.875rem;
+    color: var(--white);
+    margin-bottom: 16px;
+}
+
+.hero-rating-badge .star {
+    color: #FFD700;
+    font-size: 1rem;
+}
+
+.hero-badge-divider {
+    opacity: 0.5;
+    margin: 0 2px;
+}
+
+/* ============================================
+   Section CTA (Benefits/Reviews)
+   ============================================ */
+.section-cta {
+    text-align: center;
+    margin-top: 48px;
+}
+
+.section-cta-text {
+    font-size: 1.0625rem;
+    color: var(--medium-gray);
+    margin-bottom: 16px;
+}
+
+.section-cta-btn {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 14px 40px;
+}
+
+/* ============================================
+   Price Anchoring
+   ============================================ */
+.price-anchoring {
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.price-anchor-main {
+    font-size: 0.875rem;
+    color: var(--danger);
+    margin-bottom: 4px;
+}
+
+.price-anchor-sub {
+    font-size: 0.9375rem;
+    color: var(--white);
+    font-weight: 600;
+}
+
+/* ============================================
+   Badge Highlight (30일 환불)
+   ============================================ */
+.badge-highlight {
+    color: var(--accent) !important;
+    position: relative;
+}
+
+.badge-highlight span {
+    font-weight: 700;
+}
+
+/* ============================================
+   Review Source Badge
+   ============================================ */
+.review-source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 200, 83, 0.1);
+    border: 1px solid rgba(0, 200, 83, 0.2);
+    color: var(--success);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 8px 20px;
+    border-radius: 24px;
+    margin-top: 12px;
+}
+
+.review-source-badge svg {
+    flex-shrink: 0;
+}
+
+/* ============================================
+   Target Card Personalized Quote
+   ============================================ */
+.target-quote {
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: var(--primary);
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.5;
+    padding: 8px 12px;
+    background: rgba(0, 102, 204, 0.05);
+    border-radius: 8px;
+}
+
+/* ============================================
+   FAQ Section
+   ============================================ */
+.faq {
+    padding: 120px 0;
+    background: var(--white);
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.faq-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    color: var(--dark);
+    text-align: left;
+    transition: color var(--transition-fast);
+}
+
+.faq-question:hover {
+    color: var(--primary);
+}
+
+.faq-arrow {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    transition: transform var(--transition-normal);
+    color: var(--light-gray);
+}
+
+.faq-item.open .faq-arrow {
+    transform: rotate(180deg);
+    color: var(--primary);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-item.open .faq-answer {
+    max-height: 300px;
+    padding-bottom: 24px;
+}
+
+.faq-answer p {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--medium-gray);
+    padding-left: 4px;
+}
+
+/* ============================================
+   Floating Mobile CTA
+   ============================================ */
+.floating-cta {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    padding: 12px 16px;
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.floating-cta.visible {
+    transform: translateY(0);
+}
+
+.floating-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    text-align: center;
+    transition: opacity var(--transition-fast);
+}
+
+.floating-cta-btn:hover {
+    opacity: 0.9;
+}
+
+.floating-price {
+    font-size: 1.125rem;
+    font-weight: 900;
+}
+
+.floating-text {
+    font-size: 0.9375rem;
 }
 
