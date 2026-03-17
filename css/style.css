@@ -42,6 +42,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -2766,7 +2767,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .target-slider {
-        overflow: visible;
+        overflow: hidden;
     }
 
     .target-grid {
@@ -3818,8 +3819,10 @@ html {
     position: relative;
 }
 
-.target-slider {
-    overflow: visible;
+@media (min-width: 769px) {
+    .target-slider {
+        overflow: visible;
+    }
 }
 
 .target-nav {
