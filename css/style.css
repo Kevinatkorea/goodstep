@@ -30,6 +30,7 @@
     --transition-slow: 0.5s ease;
 
     --nav-height: 80px;
+    --promo-height: 40px;
 }
 
 /* Reset & Base */
@@ -172,7 +173,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Navigation */
 .navbar {
     position: fixed;
-    top: 0;
+    top: var(--promo-height);
     left: 0;
     right: 0;
     height: var(--nav-height);
@@ -344,7 +345,7 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 2;
     max-width: 1000px;
     margin: 0 auto;
-    padding: calc(var(--nav-height) + 40px) 24px 120px;
+    padding: calc(var(--nav-height) + var(--promo-height) + 40px) 24px 120px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -2392,7 +2393,7 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Hero Section */
     .hero-content {
-        padding: calc(var(--nav-height) + 40px) 20px 80px;
+        padding: calc(var(--nav-height) + var(--promo-height) + 40px) 20px 80px;
     }
 
     .hero-text-slides {
@@ -3279,7 +3280,7 @@ h1, h2, h3, h4, h5, h6 {
 
     /* Hero */
     .hero-content {
-        padding: calc(var(--nav-height) + 32px) 16px 80px;
+        padding: calc(var(--nav-height) + var(--promo-height) + 32px) 16px 80px;
     }
 
     .hero-text-slides {
@@ -4135,8 +4136,11 @@ html {
     text-align: center;
     padding: 10px 16px;
     font-size: 0.875rem;
-    position: relative;
-    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
 }
 
 .promo-content {

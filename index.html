@@ -20,6 +20,11 @@
             <a href="#purchase" class="promo-cta">지금 확인 →</a>
         </div>
     </div>
+    <script>
+    // Sync promo banner height to navbar position
+    (function(){var p=document.querySelector('.promo-banner');if(p){var h=p.offsetHeight;document.documentElement.style.setProperty('--promo-height',h+'px');}
+    window.addEventListener('resize',function(){var p=document.querySelector('.promo-banner');if(p)document.documentElement.style.setProperty('--promo-height',p.offsetHeight+'px');});})();
+    </script>
 
     <!-- Navigation -->
     <nav class="navbar">
