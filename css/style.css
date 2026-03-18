@@ -3099,10 +3099,16 @@ h1, h2, h3, h4, h5, h6 {
     .reviews-slider-wrapper {
         flex-direction: column;
         gap: 16px;
+        overflow: hidden;
     }
 
     .reviews-slider-wrapper .review-nav {
         display: none;
+    }
+
+    .reviews-slider {
+        width: 100%;
+        max-width: 100%;
     }
 
     .review-card {
