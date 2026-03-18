@@ -1117,8 +1117,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .solution-detail-header {
     text-align: left;
-    margin-bottom: 32px;
-    max-width: calc(50% - 24px);
+    margin-bottom: 24px;
+    padding-left: 50px;
 }
 
 .solution-detail-layout {
@@ -2173,7 +2173,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .solution-detail-header {
-        max-width: 100%;
+        padding-left: 0;
     }
 
     .solution-detail-layout {
