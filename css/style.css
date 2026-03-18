@@ -1108,6 +1108,79 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
 }
 
+/* Solution Detail Section (섹션 2) */
+.solution-detail-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, rgba(26, 26, 36, 0.98) 0%, rgba(20, 20, 30, 1) 100%);
+    color: var(--white);
+}
+
+.solution-detail-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.solution-detail-image {
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.solution-detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.section-subtitle {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.3;
+}
+
+.solution-detail-desc {
+    font-size: 1.125rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+}
+
+.solution-detail-section .solution-stats {
+    flex-direction: column;
+    gap: 24px;
+}
+
+.solution-detail-section .stat {
+    background: rgba(255,255,255,0.05);
+    padding: 20px 24px;
+    border-radius: 16px;
+    border-left: 3px solid var(--accent);
+}
+
+.stat-desc {
+    font-size: 0.875rem;
+    color: rgba(255,255,255,0.5);
+    margin-top: 4px;
+}
+
+.solution-detail-section .btn-outline {
+    display: inline-block;
+    padding: 14px 32px;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-normal);
+    align-self: flex-start;
+}
+
+.solution-detail-section .btn-outline:hover {
+    background: var(--accent);
+    color: var(--dark);
+}
+
 .image-overlay-text {
     position: absolute;
     bottom: 0;
@@ -2093,6 +2166,15 @@ h1, h2, h3, h4, h5, h6 {
         margin-bottom: 40px;
     }
 
+    .solution-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .solution-detail-section {
+        padding: 60px 0;
+    }
+
     .solution-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -2592,6 +2674,29 @@ h1, h2, h3, h4, h5, h6 {
     /* Solution Section */
     .solution-layout {
         grid-template-columns: 1fr;
+    }
+
+    .solution-detail-layout {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .solution-detail-section {
+        padding: 48px 0;
+    }
+
+    .section-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .solution-detail-section .stat {
+        padding: 16px 20px;
+    }
+
+    .solution-detail-section .btn-outline {
+        align-self: center;
+        width: 100%;
+        text-align: center;
     }
 
     .solution-hero-image .image-slider,
