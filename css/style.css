@@ -1115,10 +1115,15 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
 }
 
+.solution-detail-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
 .solution-detail-layout {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 48px;
     align-items: center;
 }
 
@@ -1130,7 +1135,7 @@ h1, h2, h3, h4, h5, h6 {
 .solution-detail-content {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 .section-subtitle {
@@ -1141,25 +1146,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .solution-detail-desc {
-    font-size: 1.125rem;
+    font-size: 1.0625rem;
     color: rgba(255,255,255,0.7);
     line-height: 1.8;
 }
 
 .solution-detail-section .solution-stats {
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
 }
 
 .solution-detail-section .stat {
     background: rgba(255,255,255,0.05);
-    padding: 20px 24px;
-    border-radius: 16px;
+    padding: 16px 20px;
+    border-radius: 12px;
     border-left: 3px solid var(--accent);
 }
 
 .stat-desc {
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: rgba(255,255,255,0.5);
     margin-top: 4px;
 }
