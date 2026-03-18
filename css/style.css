@@ -1116,8 +1116,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .solution-detail-header {
-    text-align: center;
-    margin-bottom: 48px;
+    text-align: left;
+    margin-bottom: 32px;
 }
 
 .solution-detail-layout {
@@ -4405,6 +4405,7 @@ html {
     border: 1px solid rgba(255, 107, 107, 0.2);
     border-radius: 12px;
     padding: 16px 20px;
+    margin-top: 24px;
     margin-bottom: 24px;
     text-align: center;
 }
