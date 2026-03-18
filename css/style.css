@@ -2305,6 +2305,7 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
     :root {
         --nav-height: 64px;
+        --promo-height: 60px;
     }
 
     /* Navigation Mobile Menu */
@@ -4032,9 +4033,24 @@ html {
     background: var(--bg-light);
     padding: 32px;
     border-radius: 20px;
-    flex: 0 0 calc(33.333% - 16px);
-    min-width: calc(33.333% - 16px);
+    flex: 0 0 100%;
+    min-width: 100%;
+    box-sizing: border-box;
     transition: all var(--transition-normal);
+}
+
+@media (min-width: 769px) {
+    .review-card {
+        flex: 0 0 calc(50% - 12px);
+        min-width: calc(50% - 12px);
+    }
+}
+
+@media (min-width: 993px) {
+    .review-card {
+        flex: 0 0 calc(33.333% - 16px);
+        min-width: calc(33.333% - 16px);
+    }
 }
 
 .review-card:hover {
