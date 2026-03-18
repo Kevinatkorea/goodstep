@@ -4045,8 +4045,27 @@ html {
 .review-header {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     margin-bottom: 16px;
+}
+
+.reviewer-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 30%;
+    flex-shrink: 0;
+    margin-right: 8px;
+}
+
+.reviewer-info {
+    min-width: 0;
+    flex: 1;
+}
+
+.reviewer-meta {
+    white-space: nowrap;
 }
 
 .reviewer-info {
