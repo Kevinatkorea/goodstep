@@ -1117,8 +1117,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .solution-detail-header {
     text-align: left;
-    margin-bottom: 40px;
-    padding-left: 50px;
+    margin-bottom: 32px;
+    max-width: calc(50% - 24px);
 }
 
 .solution-detail-layout {
@@ -2170,6 +2170,10 @@ h1, h2, h3, h4, h5, h6 {
 
     .solution-hero-image {
         margin-bottom: 40px;
+    }
+
+    .solution-detail-header {
+        max-width: 100%;
     }
 
     .solution-detail-layout {
