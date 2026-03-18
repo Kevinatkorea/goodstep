@@ -3099,7 +3099,6 @@ h1, h2, h3, h4, h5, h6 {
     .reviews-slider-wrapper {
         flex-direction: column;
         gap: 16px;
-        overflow: hidden;
     }
 
     .reviews-slider-wrapper .review-nav {
@@ -3108,29 +3107,19 @@ h1, h2, h3, h4, h5, h6 {
 
     .reviews-slider {
         width: 100%;
-        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .reviews-track {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
     .review-card {
         flex: 0 0 100%;
         min-width: 100%;
         padding: 24px 20px;
-    }
-
-    .reviews-track {
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        padding-bottom: 8px;
-    }
-
-    .reviews-track::-webkit-scrollbar {
-        display: none;
-    }
-
-    .reviews-track .review-card {
-        scroll-snap-align: start;
+        box-sizing: border-box;
     }
 
     .reviewer-name {

@@ -239,13 +239,9 @@ function initReviewsSlider() {
     const maxIndex = Math.max(0, cards.length - visibleCards);
 
     function updateSlider() {
-        if (window.innerWidth <= 768) {
-            // Mobile: use scrollTo for CSS scroll-snap
-            var w = cards[0].offsetWidth + 24;
-            track.scrollTo({ left: currentIndex * w, behavior: 'smooth' });
-        } else {
-            track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
-        }
+        var gap = 24;
+        var w = cards[0].offsetWidth + gap;
+        track.style.transform = `translateX(-${currentIndex * w}px)`;
     }
 
     function goToNext() {
