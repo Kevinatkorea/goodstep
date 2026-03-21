@@ -630,6 +630,10 @@ h1, h2, h3, h4, h5, h6 {
     background-attachment: fixed;
 }
 
+.problem .section-subtitle {
+    color: #333 !important;
+}
+
 .problem-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
