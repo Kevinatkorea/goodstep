@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollSnapDots('.cop-comparison', '.cop-compare-item', '.cop-dots', 'cop-dot');
     initFAQ();
     initFloatingCTA();
+    initPurchaseDate();
+    initFooterYear();
+    initScrollToTop();
+    initLightbox();
 });
 
 /* ============================================
@@ -39,7 +43,7 @@ function initHeroSlider() {
     let currentIndex = 0;
     let autoSlideTimer;
     let progressTimer;
-    const interval = 6000; // 6 seconds per slide
+    const interval = 5000; // 5 seconds per slide
     const progressStep = 30; // update every 30ms
 
     // Create dots
@@ -230,6 +234,7 @@ function initReviewsSlider() {
     const cards = wrapper.querySelectorAll('.review-card');
     const prevBtn = wrapper.querySelector('.review-prev');
     const nextBtn = wrapper.querySelector('.review-next');
+    const dotsContainer = document.querySelector('.review-dots');
 
     if (!track || cards.length === 0) return;
 
@@ -238,10 +243,39 @@ function initReviewsSlider() {
     const visibleCards = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
     const maxIndex = Math.max(0, cards.length - visibleCards);
 
+    // Create dots
+    function createDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        var vis = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+        var max = Math.max(0, cards.length - vis);
+        for (var i = 0; i <= max; i++) {
+            var dot = document.createElement('button');
+            dot.className = 'review-dot' + (i === currentIndex ? ' active' : '');
+            dot.setAttribute('aria-label', '후기 ' + (i + 1) + '번째 페이지');
+            (function(idx) {
+                dot.addEventListener('click', function() {
+                    currentIndex = idx;
+                    updateSlider();
+                });
+            })(i);
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        if (!dotsContainer) return;
+        var dots = dotsContainer.querySelectorAll('.review-dot');
+        dots.forEach(function(dot, i) {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
     function updateSlider() {
         var gap = 24;
         var w = cards[0].offsetWidth + gap;
         track.style.transform = `translateX(-${currentIndex * w}px)`;
+        updateDots();
     }
 
     function goToNext() {
@@ -283,14 +317,18 @@ function initReviewsSlider() {
         autoSlide = setInterval(goToNext, 5000);
     });
 
+    // Create initial dots
+    createDots();
+
     // Update on resize
     window.addEventListener('resize', debounce(() => {
         const newVisibleCards = window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
         const newMaxIndex = Math.max(0, cards.length - newVisibleCards);
         if (currentIndex > newMaxIndex) {
             currentIndex = newMaxIndex;
-            updateSlider();
         }
+        createDots();
+        updateSlider();
     }, 250));
 }
 
@@ -748,6 +786,11 @@ window.addEventListener('load', function() {
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-question');
 
+    function updateIcon(item) {
+        var icon = item.querySelector('.faq-toggle-icon');
+        if (icon) icon.innerHTML = item.classList.contains('open') ? '&minus;' : '+';
+    }
+
     faqItems.forEach(function(btn) {
         btn.addEventListener('click', function() {
             const item = this.parentElement;
@@ -758,14 +801,19 @@ function initFAQ() {
                 if (openItem !== item) {
                     openItem.classList.remove('open');
                     openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    updateIcon(openItem);
                 }
             });
 
             // Toggle current item
             item.classList.toggle('open', !isOpen);
             this.setAttribute('aria-expanded', !isOpen);
+            updateIcon(item);
         });
     });
+
+    // Initialize icons for any pre-opened items
+    document.querySelectorAll('.faq-item').forEach(updateIcon);
 }
 
 /* ============================================
@@ -791,6 +839,91 @@ function initFloatingCTA() {
             floatingCta.classList.remove('visible');
         }
     }, 100));
+}
+
+/* ============================================
+   Purchase Dynamic Date
+   ============================================ */
+
+function initPurchaseDate() {
+    var el = document.getElementById('purchase-date-text');
+    if (!el) return;
+    var today = new Date();
+    var mm = today.getMonth() + 1;
+    var dd = today.getDate();
+    el.textContent = '지금 주문하면 ' + mm + '월 ' + dd + '일 보행교정 가이드 PDF 무료 증정';
+}
+
+/* ============================================
+   Footer Year Auto-Update
+   ============================================ */
+
+function initFooterYear() {
+    var footerBottom = document.querySelector('.footer-bottom p');
+    if (footerBottom) {
+        footerBottom.innerHTML = footerBottom.innerHTML.replace('2024', new Date().getFullYear());
+    }
+}
+
+/* ============================================
+   Scroll to Top Button
+   ============================================ */
+
+function initScrollToTop() {
+    var btn = document.getElementById('scrollTopBtn');
+    if (!btn) return;
+
+    window.addEventListener('scroll', throttle(function() {
+        if (window.scrollY > 300) {
+            btn.classList.add('visible');
+        } else {
+            btn.classList.remove('visible');
+        }
+    }, 100));
+
+    btn.addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+
+/* ============================================
+   Lightbox Modal
+   ============================================ */
+
+function initLightbox() {
+    var overlay = document.getElementById('lightbox');
+    var img = document.getElementById('lightbox-img');
+    if (!overlay || !img) return;
+
+    document.querySelectorAll('.trust-lightbox-trigger').forEach(function(trigger) {
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            var targetImg = this.querySelector('img');
+            if (targetImg) {
+                img.src = targetImg.src;
+                img.alt = targetImg.alt;
+            }
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay || e.target.classList.contains('lightbox-close')) {
+            closeLightbox();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) {
+            closeLightbox();
+        }
+    });
 }
 
 console.log('Good Step Website Initialized');
