@@ -786,11 +786,6 @@ window.addEventListener('load', function() {
 function initFAQ() {
     const faqItems = document.querySelectorAll('.faq-question');
 
-    function updateIcon(item) {
-        var icon = item.querySelector('.faq-toggle-icon');
-        if (icon) icon.innerHTML = item.classList.contains('open') ? '&minus;' : '+';
-    }
-
     faqItems.forEach(function(btn) {
         btn.addEventListener('click', function() {
             const item = this.parentElement;
@@ -801,19 +796,14 @@ function initFAQ() {
                 if (openItem !== item) {
                     openItem.classList.remove('open');
                     openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-                    updateIcon(openItem);
                 }
             });
 
             // Toggle current item
             item.classList.toggle('open', !isOpen);
             this.setAttribute('aria-expanded', !isOpen);
-            updateIcon(item);
         });
     });
-
-    // Initialize icons for any pre-opened items
-    document.querySelectorAll('.faq-item').forEach(updateIcon);
 }
 
 /* ============================================
